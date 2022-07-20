@@ -19,7 +19,11 @@ RSpec.describe MerchantFacade do
 
   it 'turns service response into items list' do 
     merchant_items = MerchantFacade.get_merchant_items(1)
-    binding.pry
-    
+
+    expect(merchant_items).to be_an(Array)
+
+    merchant_items.each do |item|
+      expect(item.merchant_id).to eq(1)
+    end
   end
 end
