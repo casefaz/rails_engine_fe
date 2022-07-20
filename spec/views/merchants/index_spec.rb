@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Merchant Index' do
-  describe 'user story - merchants' do
+  xdescribe 'user story - merchants' do
     it 'has a list of merchants' do 
       merchant = Merchant.create!(name: 'Merchants R Us')
       merchant2 = Merchant.create!(name: 'Merchants R U')
