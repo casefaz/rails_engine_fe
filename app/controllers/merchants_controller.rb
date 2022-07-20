@@ -4,6 +4,6 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    
+    merchant = MerchantFacade.one_merchant
   end
 end
