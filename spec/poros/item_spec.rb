@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item do 
   it 'exists and has attributes' do 
-    attributes = {  id: '1'
+    attributes = {  id: '1',
                     attributes: {
                                 name: '3d printed buff mouse',
                                 description: 'its a 3d printed mouse from demon slayer',
