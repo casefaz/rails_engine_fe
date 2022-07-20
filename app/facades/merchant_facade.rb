@@ -6,8 +6,15 @@ class MerchantFacade
     end
   end
 
-  def self.one_merchant
-    json = MerchantService.get_merchant('1')
+  def self.one_merchant(id)
+    json = MerchantService.get_merchant(id)
     Merchant.new(json)
+  end
+
+  def self.get_merchant_items(id)
+    json = MerchantService.get_merchant_items(id)
+    json.map do |item_data|
+      Item.new(item_data)
+    end
   end
 end

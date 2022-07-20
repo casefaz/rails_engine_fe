@@ -31,6 +31,12 @@ RSpec.describe MerchantService do
 
       expect(merchant_items).to be_a(Hash)
       expect(merchant_items).to have_key(:data)
+
+      item = merchant_items[:data][0]
+      expect(item[:attributes]).to have_key(:name)
+      expect(item[:attributes]).to have_key(:description)
+      expect(item[:attributes]).to have_key(:unit_price)
+      expect(item[:attributes]).to have_key(:merchant_id)
     end
   end
 end
