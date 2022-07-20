@@ -29,14 +29,16 @@ RSpec.describe MerchantService do
     it 'gets a merchants items data' do 
       merchant_items = MerchantService.get_merchant_items('1')
 
-      expect(merchant_items).to be_a(Hash)
-      expect(merchant_items).to have_key(:data)
+      expect(merchant_items).to be_an(Array)
+      expect(merchant_items[0]).to have_key(:id)
+      expect(merchant_items[0]).to have_key(:type)
+      expect(merchant_items[0]).to have_key(:attributes)
 
-      item = merchant_items[:data][0]
-      expect(item[:attributes]).to have_key(:name)
-      expect(item[:attributes]).to have_key(:description)
-      expect(item[:attributes]).to have_key(:unit_price)
-      expect(item[:attributes]).to have_key(:merchant_id)
+      item = merchant_items[0][:attributes]
+      expect(item).to have_key(:name)
+      expect(item).to have_key(:description)
+      expect(item).to have_key(:unit_price)
+      expect(item).to have_key(:merchant_id)
     end
   end
 end
