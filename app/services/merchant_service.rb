@@ -3,6 +3,11 @@ class MerchantService
     response = conn.get('/api/v1/merchants')
     results = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.get_merchant(id)
+    response = conn.get("/api/v1/merchants/#{id}")
+    results = JSON.parse(response.body, symbolize_names: true)[:data]
+  end
   
   def self.conn 
     url = 'http://localhost:3000'
