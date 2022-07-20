@@ -5,12 +5,12 @@ RSpec.describe MerchantService do
     it 'returns merchants' do 
       merchant = MerchantService.get_all_merchants
 
-      expect(merchant).to be_a Merchant
       expect(merchant).to be_a(Hash)
-      merchant_data = search[:results].first
+      expect(merchant).to have_key(:data)
+      merchant_data = merchant[:data][0][:attributes]
 
       expect(merchant_data).to have_key(:name)
-      expect(merchant_data).to be_a(String)
+      expect(merchant_data[:name]).to be_a(String)
     end
   end
 end
